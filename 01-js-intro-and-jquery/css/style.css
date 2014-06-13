@@ -5,8 +5,13 @@ header {
 	display: 				none;
 }
 section {
-	width: 					100%;
+	width: 					70%;
 	position: 				relative;
+}
+aside {
+	width:					30%;
+	position: 				relative;
+
 }
 .content {
 	overflow: 				auto;
@@ -29,4 +34,15 @@ section {
 }
 .highlight {
 	background-color: 		yellow;
+}
+
+.background {
+	height: 100%;
+	width: 100vw;
+	background-color: #CCF;
+	display: none;
+	position: fixed;
+	top: 0px;
+    right: 0px;
+
 }

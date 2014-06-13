@@ -4,18 +4,7 @@ function removeMsj($input){
 	});
 	$('.alias').focus();
 };
-function highlight(text)
-{
-	inputText = $('successmsj').innerHTML;
-	var innerHTML = inputText.val();
-	var index = innerHTML.indexOf(text);
-	if ( index >= 0 )
-	{ 
-			innerHTML = innerHTML.substring(0,index) + '<span class="highlight">' + innerHTML.substring(index,index+text.length) + '</span>' + innerHTML.substring(index + text.length);
-			inputText.innerHTML = innerHTML 
-	}
 
-}
 //only when the page is loaded
 $(document).ready(function() {
 	// section fade in
@@ -24,15 +13,14 @@ $(document).ready(function() {
 		$('.alias').focus();
 	});
 
-
 	$('.reqButton').click(function() {
-
 		if ($('.alias').val() != "") {
 			var linkref = 'http://bootcamp.aws.af.cm/welcome/'+$('.alias').val();
 			$.getJSON(linkref).done( function(data) {
 				removeMsj($('#listResponse'));
 				$('#listResponse').append('<li class="content successmsj">'+data.response+'</li>');
-				highlight($('.alias').val());
+				var thl = $('.successmsj').html();
+				document.getElementsByClassName('successmsj')[0].innerHTML = thl.replace($('.alias').val(),'<span class="highlight">'+$('.alias').val()+'</span>');
 			})
 			.fail(function() {
 				removeMsj($('#listResponse'));
@@ -42,5 +30,21 @@ $(document).ready(function() {
 			$('.alias').prop('placeholder','Hey!, complete me.');
 		}
 	});
+	getTweets();
 });
 
+function getTweets() {
+	$.getJSON( 'http://tweetproxy.ap01.aws.af.cm/search?callback=?',{ q: 'html5' }, function(data){
+		console.log(data);
+	  })
+	  .done( function(data) {
+	  	//todo url doesnt work anymore.
+	  	$( '#listTweets' ).append('<div class"content tweet">'+
+	  															'<img src="'+profile_image_url+'" class="small"> '+
+	  															'<p>'+'Tweet from: '+ tweet.from_user+'</p>'+
+	  															'<p>'+ tweet.text +'</p>'+
+	  															'<p>'+ created_at +' - '+ tweet.from_user+'</p>'+
+	  														'</div>')
+	  });
+
+}
