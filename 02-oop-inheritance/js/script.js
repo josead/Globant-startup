@@ -13,7 +13,7 @@ function Movie() {
 }
 
 Movie.prototype.suscribe = function(event,callback) {
-	this.Event[event] = "event" callback;
+	this.Event[event] = callback;
 }
 
 Movie.prototype.play = function () {
@@ -29,16 +29,16 @@ Movie.prototype.stop = function () {
 }
 
 Movie.prototype.updateEvent = function (event) {
-	this.Event[event]();
+if (this.Event[event] != undefined)
+	this.Event[event](this);
 }
 
 function MovieObserver(movie) {
-
 	movie.suscribe('play', function(movie) {
-		 console.log(this.get("title")+" is playing right now...");
+		 console.log(movie.get("title")+" is playing right now...");
 	});
 	movie.suscribe('stop', function(movie) {
-		console.log(this.get("title")+" is stoped right now...");
+		console.log(movie.get("title")+" is stoped right now...");
 	});
 }
 
@@ -49,16 +49,37 @@ function DownlodableMovie() {
 	}
 }
 
+var Social = {
+	share : function(name) {
+		console.log('Shared : '+this.get('title')+' with '+name);
+
+	},
+	like : function() {
+		console.log('you like '+this.get('title')+' now.')
+	}
+}
+
+
 DownlodableMovie.prototype = new Movie();
 
-var Social = {
-	share : function() {
-		//todo
-
+Object.prototype.addMixin = function (mixin) {
+	for (var prop in mixin) {
+		if (mixin.hasOwnProperty(prop)) {
+			this.prototype[prop] = mixin[prop];
+		}
 	}
-
 }
+
+// add mixin propertys
+Movie.addMixin(Social);
+
+
 /*
+var bestmovie = new Movie();
+var obs = new MovieObser(bestmovie);
+bestmovie.set("title","the lord of the rings");
 
 
+bestmovie.share("John Doh");
+bestmovie.like();
 */
