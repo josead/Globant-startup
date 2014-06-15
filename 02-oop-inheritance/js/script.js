@@ -1,6 +1,7 @@
 function Movie() {
 	var attributes = [];
 	this.Event = [];
+	attributes.title = name;
 
 	this.set = function(attr,value) {
 		attributes[attr] = value;
@@ -74,12 +75,3 @@ Object.prototype.addMixin = function (mixin) {
 Movie.addMixin(Social);
 
 
-/*
-var bestmovie = new Movie();
-var obs = new MovieObser(bestmovie);
-bestmovie.set("title","the lord of the rings");
-
-
-bestmovie.share("John Doh");
-bestmovie.like();
-*/
