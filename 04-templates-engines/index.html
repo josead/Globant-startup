@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>04 Profile</title>
+
+		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/style.css">
+
+		<script src="lib/jquery-2.1.1.js"></script>
+		<script src="lib/handlebars-v1.3.0.js"></script>
+		<script src="lib/underscore.js"></script>
+		<script src="lib/dust-full-0.3.0.js"></script>
+		
+	</head>
+	<body>
+	<header></header>
+	<section>
+		<aside></aside>
+		<div id="profile" class="content">
+			
+			<script id='profileTpl' type="text/x-handlebars-template">
+			<p>LinkedOut</p>
+			{{#if personal}}
+			<div id="personal" class="content property">
+				<p>about me..</p>
+				{{#list personal}}
+					{{prop}}: {{desc}}
+				{{/list}}
+			</div>
+			{{/if}}
+			{{#if education}}
+			<div id="education" class="content property">
+				<p>I can tell you where i get my skills..</p>
+				{{#list education}}
+					{{prop}}: {{desc}}
+				{{/list}}
+			</div>
+			{{/if}}
+			{{#if contact}}
+			<div id="contact" class="content property">
+				<p>Just in case you need me..</p>
+				{{#list contact}}
+					{{prop}}: {{{desc}}}
+				{{/list}}
+			</div>
+			{{/if}}
+			</script>
+		</div>
+		<script src="script.js"></script>
+	</section>
+	<footer>
+		<!--Handlebars is less-logic, thus you can handle view and functionality separated ways. Like that?-->
+	</footer>
+	</body>
+	
+
+</html>
+

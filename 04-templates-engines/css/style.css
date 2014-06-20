@@ -1,0 +1,42 @@
+
+.content {
+	margin-left: 10vw;
+	width: 80vw;
+	height: relative;
+	display: block;
+	position: absolute;
+	text-align: center;
+	background-color: #AAF;
+	border-radius: 20px 20px;
+	border: solid;
+	border-color: #FFF;
+	box-shadow: 2px 2px 10px #DDF;
+	padding-bottom: 10px;
+}
+
+.content p {
+	color:#FFF;
+	font-family: Times;
+	font-size: 30px;
+}
+
+.property {
+	margin-left: 5%;
+	margin-right: 5%;
+	margin-bottom: 10px;
+	width: 90%;
+	position: relative;
+	float: left;
+	background-color: #F8F8FF;
+	text-align: left;
+	font-size: 13px;
+	text-indent: 10px;
+}
+
+.property p {
+	font-size: 15px;
+	font-family: serif;
+	color: #DDF;
+	margin: 0;
+	text-align: center;
+}
