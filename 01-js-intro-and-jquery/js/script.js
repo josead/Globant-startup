@@ -34,17 +34,17 @@ $(document).ready(function() {
 });
 
 function getTweets() {
-	$.getJSON( 'http://tweetproxy.ap01.aws.af.cm/search?callback=?',{ q: 'html5' }, function(data){
-		console.log(data);
-	  })
-	  .done( function(data) {
+	$.getJSON( 'http://tweetproxy.ap01.aws.af.cm/search?callback=?',{ q: 'html5' }).done( function(data){
+			console.log(data.statuses);
+			$.each(data.statuses, function(i,value) {
+				$( '#listTweets' ).append('<div class"content">'+
+	  															'<img src="'+value.user.profile_image_url+'" class="small"> '+
+	  															'<div class="message" >'+'@'+value.user.screen_name+': "'+value.text+'"'+
+	  															'<p>'+ value.created_at +' - '+ value.user.name+'</p>'+'</div>'+ 
+	  														'</div>');
+			})
 	  	//todo url doesnt work anymore.
-	  	$( '#listTweets' ).append('<div class"content tweet">'+
-	  															'<img src="'+profile_image_url+'" class="small"> '+
-	  															'<p>'+'Tweet from: '+ tweet.from_user+'</p>'+
-	  															'<p>'+ tweet.text +'</p>'+
-	  															'<p>'+ created_at +' - '+ tweet.from_user+'</p>'+
-	  														'</div>')
+	  	
 	  });
 
 }
