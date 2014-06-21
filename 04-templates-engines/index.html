@@ -18,15 +18,22 @@
 	<section>
 		<aside></aside>
 		<div id="profile" class="content">
-			
 			<script id='profileTpl' type="text/x-handlebars-template">
 			<p>LinkedOut</p>
 			{{#if personal}}
 			<div id="personal" class="content property">
 				<p>about me..</p>
+				<img class="avatar" 
+						 src="{{#if imge}}
+						 				{{imge}}
+						 			{{else}}
+						 				resources/avatar_unknown.jpg
+						 			{{/if}}"
+						 alt="Avatar">
 				{{#list personal}}
 					{{prop}}: {{desc}}
 				{{/list}}
+				
 			</div>
 			{{/if}}
 			{{#if education}}

@@ -1,11 +1,12 @@
 var data = {
+	imge: 'resources/wallpaper-2707591.jpg',
 	personal:	[
 		{prop: 'Name',
 	 	 desc: 'Jose Antonio Dominguez'},
 		{prop: 'Age',
 	 	 desc: '21'},
 		{prop: 'Hobbys', 
-		 desc: 'are music, drowing, etc.'},
+		 desc: 'music, drowing, etc.'},
 		{prop: 'Job',
 		 desc: ''}
 	],
@@ -35,8 +36,12 @@ Handlebars.registerHelper('list', function(items, options) {
 	return out + '</ul>';
 })
 
-var profiletemplate = $('#profileTpl').html();
-var html = Handlebars.compile(profiletemplate);
-$('#profile').html(html(data));
 
+$(document).ready(function() {
+	var profiletemplate = $('#profileTpl').html();
+	var html = Handlebars.compile(profiletemplate);
 
+	$.getJSON('resources/profiles/jose.json').done(function(profile) {
+		$('#profile').html(html(profile));
+	});
+})

@@ -10,17 +10,18 @@
 	border-radius: 20px 20px;
 	border: solid;
 	border-color: #FFF;
-	box-shadow: 2px 2px 10px #DDF;
+	box-shadow: 0px 0px 10px #DDF;
 	padding-bottom: 10px;
 }
 
 .content p {
 	color:#FFF;
 	font-family: Times;
-	font-size: 30px;
+	font-size: 50px;
 }
 
 .property {
+	color:#44A;
 	margin-left: 5%;
 	margin-right: 5%;
 	margin-bottom: 10px;
@@ -31,12 +32,25 @@
 	text-align: left;
 	font-size: 13px;
 	text-indent: 10px;
+	vertical-align: ;
 }
 
 .property p {
+	padding-top: 3px;
 	font-size: 15px;
 	font-family: serif;
-	color: #DDF;
+	color: #AAF;
 	margin: 0;
 	text-align: center;
+}
+.avatar {
+	margin: 15px;
+	position: inherit;
+	float: right;
+	width: 150px;
+	height: 150px;
+	border-radius: 150px;
+	-webkit-border-radius: 150px;
+	-moz-border-radius: 150px;
+	box-shadow: 0px 0px 10px #DDF;
 }
