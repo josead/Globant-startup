@@ -42,6 +42,8 @@ $(document).ready(function() {
 	var html = Handlebars.compile(profiletemplate);
 
 	$.getJSON('resources/profiles/jose.json').done(function(profile) {
+		
 		$('#profile').html(html(profile));
+
 	});
 })
