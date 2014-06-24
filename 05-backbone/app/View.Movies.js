@@ -1,12 +1,14 @@
-define(['backbone','app/Model.Movie'],
-	function (Backbone, Movie) {
+define(['backbone','app/View.Movie'],
+	function (Backbone, MovieView) {
 		return Backbone.View.extend({
 			tagName: 'div',
 
 			className: 'moviesLibrary',
 
 			initialize: function() {
-				this.collection.on('add', this.addOne, this)
+				this.collection.on('add', this.addOne, this);
+				//this is not working
+ 				//this.listenTo(this.model, 'add', this.addOne);
 			},
 
 			render: function () {
@@ -14,9 +16,11 @@ define(['backbone','app/Model.Movie'],
 			},
 
 			addOne: function (movie) {
-				var movieView = new Movie({ model: movie});
-				this.$el.append(movieView.render().el)
+				var movieView = new MovieView({ model: movie });
+				console.log(movieView);
+				this.$el.append(movieView.render().el);
 			}
 
 		});
+
 });

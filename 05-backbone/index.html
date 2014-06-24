@@ -7,7 +7,6 @@
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/style.css">
 
-	<script data-main="app" src="lib/require.js"></script>
 
 </head>
 <body>
@@ -29,7 +28,8 @@
 
 		<script id="movieTemplate" type="text/template">
 			<div class='title'>
-				<button class='edit'>E</button><button class='remove'>X</button><%= title %>
+				<button class='edit'>Edit</button><button class='remove'>X</button>
+				<%= title %>
 			</div>  
 			<div class='year'><%= year %></div> 
 			<div class='genre'><%= genre %></div> 
@@ -41,7 +41,8 @@
 
 		</script>
 		
-		<script src="script.js"></script>
+		<script data-main="app" src="lib/require.js"></script>
+		
 	</section>
 </body>
 </html>

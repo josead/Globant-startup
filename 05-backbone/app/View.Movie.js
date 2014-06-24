@@ -10,7 +10,9 @@ define(['backbone'],
 		initialize: function() {
 			this.model.on('change', this.render, this);
 			this.model.on('destroy', this.remove, this);
-		},
+			//this.listenTo(this.model, 'change', this.render);
+			//this.listenTo(this.model, 'destroy', this.remove);
+    },
 
 		events: {
 			'click .edit': 'editMovie',
@@ -39,6 +41,7 @@ define(['backbone'],
 		},
 
 		editMovie: function() {
+			//TODO REMOVE CRAPPY PROMPTS 
 			var newTitle = prompt('Insert new title.', this.model.get('title'));
 			var newGenre = prompt('Insert new genre.', this.model.get('genre'));
 			var newYear = prompt('Insert new year.', this.model.get('year'));

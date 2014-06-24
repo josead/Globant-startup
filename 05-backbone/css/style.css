@@ -10,10 +10,9 @@
 	height: 200px; 
 	width: 100vw;
 	display: block;
-	float: left;
 	color: #FFF;
 	overflow: hidden;
-	text-align: right;
+	text-align: center;
 }
 
 .movie:nth-child(odd) {
@@ -27,9 +26,7 @@
 .movie>div{
 	text-shadow: 1px 1px 10px #000;
 	position: relative;
-	margin-left: 20vw;
-	font-size: 24px;
-	padding: 10px 40px;
+	font-size: 2rem;
 }
 
 .edit, .remove{
@@ -38,6 +35,7 @@
 	font-size: auto;
 	position: relative;
 	color: #444;
+	float: left;
 }
 
 .movie .image {
@@ -49,8 +47,10 @@
 
 } 
 .movie:hover {
-	overflow:visible;
-	text-align:left;
+	height: 100%; 
+	width: 100vw;
+	text-align:center;
+
 	position:relative;
 }
 

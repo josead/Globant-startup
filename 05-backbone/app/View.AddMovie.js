@@ -1,5 +1,5 @@
 define(['backbone','app/Model.Movie'],
-	function (Backbone,Movie){
+	function(Backbone,Movie){
 		// AddMovie Listener
 		return Backbone.View.extend({
 
