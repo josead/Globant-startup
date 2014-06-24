@@ -6,42 +6,36 @@ requirejs.config({
 	},
 	shim: {
 		'backbone': {
-			deps: ['underscore', 'jquery'],
+			deps: ['underscore', 'jquery-2.1.1'],
 			exports: 'Backbone'
 		},
 		'underscore': {
 			exports: '_'
 		},
-		'jquery': {
+		'jquery-2.1.1': {
 			exports: '$'
 		}
 	}
 });
 
+
 requirejs(['backbone','app/Model.Movie','app/View.Movie','app/View.AddMovie','app/Collection.Movie'],
 function (Backbone,Movie,ViewMovie,ViewAddMovie,CollectionMovies){
 
-	window.template = function(id) {
-		return _.template( $('#' + id).html() );
-	};
 
+	var req = $.getJSON('app/resources/movies.json');
 
-	$.getJSON('resources/movies.json').done(function(profile) {
-		
-		var movies = new CollectionMovies(profile);
+	console.log(req.responseText);
 
-		var moviesView = new ViewMovies({collection:movies})
-		
-		var addMovieView = new ViewAddMovie({collection:movies});
-		
-		moviesView.render();
-		
-		$('#App').append(moviesView.el);
-
-		console.log(movies);
-
-	});
-
-
+	var movies = new CollectionMovies(req.responseJSON);
+	
+	var moviesView = new ViewMovie({collection:movies})
+	
+	var addMovieView = new ViewAddMovie({collection:movies});
+	
+	
+	moviesView.render();
+	
+	$('#App').append(moviesView.el);
 		
 });

@@ -1,6 +1,6 @@
-define(['backbone','app/Movie'],
+define(['backbone','app/Model.Movie'],
 	function (Backbone, Movie) {
-		Movies = Backbone.View.extend({
+		return Backbone.View.extend({
 			tagName: 'div',
 
 			className: 'moviesLibrary',
@@ -19,5 +19,4 @@ define(['backbone','app/Movie'],
 			}
 
 		});
-		return Movies;
 });

@@ -1,7 +1,7 @@
-define(['backbone','app/Movie'],
-	function(){
+define(['backbone','app/Model.Movie'],
+	function (Backbone,Movie){
 		// AddMovie Listener
-		AddMovie = Backbone.View.extend({
+		return Backbone.View.extend({
 
 			el: '.MovieForm',
 
@@ -19,11 +19,10 @@ define(['backbone','app/Movie'],
 				var newMovieGenre = $(e.currentTarget).find('input[name=genre]').val();
 				var newMovieYear = $(e.currentTarget).find('input[name=year]').val();
 				
-				var newMovie = new App.Models.Movie({title:newMovieTitle, genre:newMovieGenre, year:newMovieYear})
+				var newMovie = new Movie({title:newMovieTitle, genre:newMovieGenre, year:newMovieYear})
 				console.log(newMovie);
 				this.collection.add(newMovie);
 			}
 
 		});
-		return AddMovie;
 });

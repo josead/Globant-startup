@@ -1,0 +1,39 @@
+[
+	{
+		"title":"lord of the rings: the comunity of the ring",
+		"year": 2006,
+		"genre":"Adventures"
+	},
+	{
+		"title":"lord of the rings: two towers",
+		"year": 2007,
+		"genre":"Adventures"
+	},
+	{
+		"title":"lord of the rings: return of the king",
+		"year": 2008,
+		"genre":"Adventures"
+	},
+	{
+		"title":"Let's make a porno",
+		"year": 2010,
+		"genre":"Comedian"
+	},
+	{
+		"title":"Argo",
+		"year": 2012,
+		"genre":"Drama/Historical"
+	},
+	{
+		"title":"Stargate",
+		"year": 1990,
+		"genre":"Ciencia Ficcion"
+	},
+	{
+		"title":"Frozen",
+		"year": 2013,
+		"genre":"Animada"
+	}
+
+
+]

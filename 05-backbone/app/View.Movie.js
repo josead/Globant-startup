@@ -1,6 +1,6 @@
 define(['backbone'],
 	function (Backbone){
-	Movie = Backbone.View.extend({
+	return Backbone.View.extend({
 		tagName: 'div',
 
 		className: 'movie',
@@ -57,5 +57,4 @@ define(['backbone'],
 		}
 	});
 
-	return Movie;
 });

@@ -1,6 +1,7 @@
 define(['backbone'],
-	function(){
-		Movie = Backbone.Model.extend({});
+	function (Backbone){
+		return Backbone.Model.extend({
 
-		return Movie;
+		});
+
 });

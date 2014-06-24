@@ -1,9 +1,6 @@
-define(['backbone','app/Movie'], 
+define(['backbone','app/Model.Movie'], 
 	function (Backbone, Movie) {
-		Movies = Backbone.Collection.extend({
-
+		return new Backbone.Collection.extend({
 			model: Movie
-			
 		});
-		return Movies;
 });
