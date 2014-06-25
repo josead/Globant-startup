@@ -18,6 +18,7 @@ define(['backbone','app/View.Movie'],
 			addOne: function (movie) {
 				var movieView = new MovieView({ model: movie });
 				this.$el.append(movieView.render().el);
+				
 			}
 
 		});

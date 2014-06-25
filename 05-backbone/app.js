@@ -64,12 +64,12 @@ function (Backbone,Movie,ViewMovie,ViewAddMovie,ViewMovies,CollectionMovies){
 
 
 	var movies = new CollectionMovies(MoviesPack);
-
 	var moviesViewer = new ViewMovies({collection: movies })
 	
 	var addMovieView = new ViewAddMovie({collection: movies });
 
 	moviesViewer.render();
+	addMovieView.render();
 		
 	$('#App').append(moviesViewer.el);
 

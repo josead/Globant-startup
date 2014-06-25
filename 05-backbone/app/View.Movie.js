@@ -5,8 +5,7 @@ define(['backbone'],
 
 		className: 'movie',
 
-		template: _.template( $('#movieTemplate').html()),
-
+		template: _.template($('#movieTemplate').html()),
 
 
 		initialize: function() {
@@ -70,11 +69,12 @@ define(['backbone'],
 
 		toggle: function() {
 			this.$el.find('#front').slideToggle();
+			this.$el.find('#options').fadeOut();
 			//this.$el.find('.image').toggle();
 		},
 
 		showOptions: function() {
-			this.$el.find('#options').slideDown();
+			this.$el.find('#options').fadeIn('fast');
 		},
 
 		showForm: function() {
