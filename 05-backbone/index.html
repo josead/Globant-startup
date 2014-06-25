@@ -7,42 +7,70 @@
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/style.css">
 
-
+	
+ 		<script src="http://cufon.shoqolate.com/js/cufon-yui.js" type="text/javascript"></script>
+		<script src="myriad-pro.cufonfonts.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			Cufon.replace('.myriad-pro-regular', { fontFamily: 'Myriad Pro Regular', hover: true });
+		</script>
 </head>
 <body>
 	<header>
-		<h1> Movies </h1>
-		<form class="MovieForm" action="">
-			 Title: <input type="text" name="title" value="Harry Potter">
-			 Genre: <input type="text" name="genre" value="Fantasy">
-			 Year: <input type="text" name="year" value="2001"> 
-			 <input type="submit" value="+">
-		</form>
+		<span><h1> This is a cool Title </h1></span>
+
 	</header>
 	<section>
-
+		
 		
 		<div id="App">
+
+			<script id="formTemplate" type="text/template">
+				<form class="MovieForm" action="">
+					<input type="text" class="title" placeholder= 'Title here...' >
+					<input type="text" class="genre" placeholder= 'Genre...'>
+					<input type="text" class="year" placeholder= 'Year...'> 
+					<input type="submit" value="Ok">
+				</form>
+			</script>
+
+
+			<script id="movieTemplate" type="text/template">
+
+				<div id='options'>
+					<button id='edit' class='button' alt=''> Edit </button><button id='remove' class='button' alt=''> Remove </button>
+				</div>
+				<div id="front">
+					<div class='title'>
+						<%= title %>
+					</div>  
+					<div class='year'><%= year %></div> 
+					<div class='genre'><%= genre %></div> 
+				</div>
+				<img class='image'>
+
+			</script>
+
+			<script id="collectionTemplate" type="text/template">
+				<div id='FilmsCollection' class='Collection'>
+					<div id='Title'> My Movie Collection </div>
+					<div class="content">
+						//Movies in here
+					</div>
+				</div>
+			</script>
+
+
+
 			
 		</div>
 
-		<script id="movieTemplate" type="text/template">
-			<div class='title'>
-				<button class='edit'>Edit</button><button class='remove'>X</button>
-				<%= title %>
-			</div>  
-			<div class='year'><%= year %></div> 
-			<div class='genre'><%= genre %></div> 
-			<img class='image'>
+			
 
-		</script>
-
-		<script id="libraryTemplate" type="text/template">
-
-		</script>
 		
 		<script data-main="app" src="lib/require.js"></script>
 		
 	</section>
+	<footer>
+	</footer>
 </body>
 </html>

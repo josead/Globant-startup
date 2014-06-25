@@ -41,7 +41,7 @@ function (Backbone,Movie,ViewMovie,ViewAddMovie,ViewMovies,CollectionMovies){
 			"genre":"Adventures"
 		},
 		{
-			"title":"Let's make a porno",
+			"title":"X-Man First Class",
 			"year": 2010,
 			"genre":"Comedian"
 		},
@@ -65,11 +65,10 @@ function (Backbone,Movie,ViewMovie,ViewAddMovie,ViewMovies,CollectionMovies){
 
 	var movies = new CollectionMovies(MoviesPack);
 
-	console.log(movies);
 	var moviesViewer = new ViewMovies({collection: movies })
-		
+	
 	var addMovieView = new ViewAddMovie({collection: movies });
-		
+
 	moviesViewer.render();
 		
 	$('#App').append(moviesViewer.el);

@@ -7,6 +7,8 @@ define(['backbone'],
 
 		template: _.template( $('#movieTemplate').html()),
 
+
+
 		initialize: function() {
 			this.model.on('change', this.render, this);
 			this.model.on('destroy', this.remove, this);
@@ -15,8 +17,12 @@ define(['backbone'],
     },
 
 		events: {
-			'click .edit': 'editMovie',
-			'click .remove': 'destroy'
+			'click #edit': 'showForm',
+			'click #remove': 'destroy',
+			'dblclick #front': 'showOptions',
+			'submit' : 'editMovie',
+			'mouseenter': 'toggle',
+			'mouseleave': 'toggle'
 		},
 
 		render: function() {
@@ -40,15 +46,18 @@ define(['backbone'],
 			});
 		},
 
-		editMovie: function() {
-			//TODO REMOVE CRAPPY PROMPTS 
-			var newTitle = prompt('Insert new title.', this.model.get('title'));
-			var newGenre = prompt('Insert new genre.', this.model.get('genre'));
-			var newYear = prompt('Insert new year.', this.model.get('year'));
+		editMovie: function() {			
+				this.model.set({
+						'genre': this.$el.find('.genre').val(),
+						'year': this.$el.find('.year').val(),
+						'title': this.$el.find('.title').val()});
 
-			this.model.set('title',newTitle);
-			this.model.set('genre',newGenre);
-			this.model.set('year',newYear);
+				if (this.model.get('title')) {
+					this.render();
+					this.$el.find('#front').hide();
+				}
+				console.log(this.$el.find('.year').val());
+		
 		},
 
 		destroy: function() {
@@ -57,7 +66,21 @@ define(['backbone'],
 
 		remove: function() {
 			this.$el.remove();
+		},
+
+		toggle: function() {
+			this.$el.find('#front').slideToggle();
+			//this.$el.find('.image').toggle();
+		},
+
+		showOptions: function() {
+			this.$el.find('#options').slideDown();
+		},
+
+		showForm: function() {
+			this.$el.html(_.template($('#formTemplate').html()));
 		}
+
 	});
 
 });
